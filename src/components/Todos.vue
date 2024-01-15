@@ -3,19 +3,40 @@ import { useCounterStore } from '@/stores/counter'
 import { storeToRefs } from 'pinia'
 
 const store = useCounterStore()
-// `name` and `doubleCount` are reactive refs
-// This will also extract refs for properties added by plugins
-// but skip any action or non reactive (non ref/reactive) property
-const { name, doubleCount, records } = storeToRefs(store)
-// the increment action can just be destructured
-const { increment,fetchRecords } = store
+const { records } = storeToRefs(store)
+const { fetchRecords, deleteRecord } = store
+fetchRecords();
+let logClickedItem = (record) => {
+  console.log(record.id);
+  deleteRecord(record.id);
+}
 </script>
 
+
 <template>
-    <div id="app">
-      <button @click="fetchRecords">fetchRecords</button>
-      <ul>
-      <li v-for="record in records" :key="record.id">{{ record.fields.Name }}</li>
-    </ul>
-    </div>
-  </template>
+  <v-card class="mx-auto" width="700">
+    <v-list density="compact">
+
+      <v-list-item v-for="(record, i) in records" :key="i" :value="record" color="primary">
+        <!-- thi icon should be here -->
+        <div class="icon" @click="logClickedItem(record)"></div>
+
+        <v-list-item-title v-text="record.fields.Name"></v-list-item-title>
+      </v-list-item>
+    </v-list>
+  </v-card>
+</template>
+
+<style>
+div.icon {
+  width: 15px;
+  height: 15px;
+  background: red;
+  display: inline-block;
+}
+
+.v-list-item-title {
+  display: inline-block;
+  margin-left: 5px;
+}
+</style>

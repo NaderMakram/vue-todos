@@ -1,6 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import Todos from './components/Todos.vue'
+import Form from './components/Form.vue'
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import Todos from './components/Todos.vue'
     <TheWelcome />
   </main> -->
 
+  <Form/>
   <Todos/>
 </template>
 
