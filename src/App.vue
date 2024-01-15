@@ -5,10 +5,9 @@ import Form from './components/Form.vue'
 </script>
 
 <template>
- 
   <main>
-    <Form/>
-    <Todos/>
+    <Form />
+    <Todos />
   </main>
 </template>
 
@@ -25,7 +24,7 @@ header {
 @media (min-width: 1024px) {
   main {
     display: flex;
-    widows: 100vw !important;
+    width: 100vw !important;
     align-items: center;
     justify-content: center;
     flex-direction: column;
