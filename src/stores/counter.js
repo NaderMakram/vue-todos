@@ -2,7 +2,10 @@ import { defineStore } from "pinia";
 import axios from "axios";
 
 export const useCounterStore = defineStore("counter", {
-  state: () => ({ count: 0, name: "Eduardo" }),
+  state: () => ({
+    records: [],
+  }),
+
   getters: {
     doubleCount: (state) => state.count * 2,
   },
@@ -20,8 +23,8 @@ export const useCounterStore = defineStore("counter", {
             },
           }
         );
-        console.log(response);
         this.records = response.data.records;
+        console.log(response);
       } catch (error) {
         console.error("Error fetching Airtable records:", error);
       }
