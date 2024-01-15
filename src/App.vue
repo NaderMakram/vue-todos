@@ -25,7 +25,7 @@ header {
 @media (min-width: 1024px) {
   main {
     display: flex;
-    widows: 100vw;
+    widows: 100vw !important;
     align-items: center;
     justify-content: center;
     flex-direction: column;
