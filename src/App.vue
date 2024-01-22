@@ -1,5 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 import Todos from './components/Todos.vue'
 import Form from './components/Form.vue'
 </script>

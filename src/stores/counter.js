@@ -12,16 +12,22 @@ export const useCounterStore = defineStore("counter", {
   actions: {
     async fetchRecords() {
       try {
-        const response = await axios.get(
-          `https://api.airtable.com/v0/app4GVG5QETa94mUJ/tblgBZNGKlwS0RygH`,
-          {
-            headers: {
-              Authorization: `Bearer patR6qxROwtC6iFh6.73e5c0d694b44d0aebbdccd40e0acc44be65a899eff4c2e3a9408395756521ed`,
-            },
-          }
-        );
-        this.records = response.data.records;
-        console.log(response);
+        // the old way
+
+        // const response = await axios.get(
+        //   `https://api.airtable.com/v0/app4GVG5QETa94mUJ/tblgBZNGKlwS0RygH`,
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer patR6qxROwtC6iFh6.73e5c0d694b44d0aebbdccd40e0acc44be65a899eff4c2e3a9408395756521ed`,
+        //     },
+        //   }
+        // );
+
+        // new way using express
+
+        const response = await axios.get("http://localhost:3000");
+        // console.log(response.data);
+        this.records = response.data;
       } catch (error) {
         console.error("Error fetching Airtable records:", error);
       }
